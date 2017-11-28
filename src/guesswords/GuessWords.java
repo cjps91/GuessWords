@@ -16,6 +16,10 @@ public class GuessWords {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        jugador jugador1= new jugador();
+        jugador jugador2= new jugador();
+        
+        
     }
     
 }
