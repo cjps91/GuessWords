@@ -12,7 +12,8 @@ package guesswords;
  */
 public class jugadorClass {
     int PartidasGanadas=0;
-    String nombre;
+    String nombre; //No usado en esta versión
+    int PartidasJugadas=0;
     
    public void Jugar()
    {
@@ -21,6 +22,6 @@ public class jugadorClass {
    
    public void addContador()
    {
-       
+       PartidasGanadas=PartidasGanadas+1;
    }
 }
