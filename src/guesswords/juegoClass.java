@@ -45,8 +45,18 @@ public class juegoClass {
         
     }
     
-    void ComprobarEstado()
+    void ComprobarEstado(char comprueba)
     {
+        if(PalabraOculta.indexOf(comprueba) !=-1)
+        {
+            System.out.println("\n Letra acertada");
+            LetrasUsadas.add(comprueba);
+        }
+        else
+        {
+            System.out.println("\n La letra no se encuentra en la palabra");
+            LetrasUsadas.add(comprueba);
+        }
         
     }
     
@@ -62,13 +72,20 @@ public class juegoClass {
     void MuestraPalabra()
     {
         String aux;
+        char prueba;
         aux=PalabraOculta;
         if(LetrasUsadas.size()!=0)
         {
             for(int j=0; j<LetrasUsadas.size(); j++)
             {
-                
+                prueba=(char) LetrasUsadas.elementAt(j);
+                if(PalabraOculta.indexOf(prueba) !=-1)
+                {
+                    aux.replace('*', (char) LetrasUsadas.elementAt(j));
+                }
             }
         }
+        System.out.println(aux);
     }
+    
 }
