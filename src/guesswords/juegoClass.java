@@ -1,5 +1,7 @@
 package guesswords;
+import java.io.IOException;
 import java.util.*;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,13 +19,16 @@ public class juegoClass {
     int PartidasJugadas;
     Vector LetrasUsadas;
     int intentos=7; //Nº de intentos para cada partida. Fijado a 7 arbitrariamente.
-
+    GuessWords Estado= new GuessWords();
     public juegoClass() {
         this.LetrasUsadas = new Vector();
     }
     
-    void PrintJuego()
+    void PrintJuego() throws IOException
     {
+        char menus, letra;
+        String Palabra;
+        Scanner sc = new Scanner(System.in);
         System.out.println("Partida ");
         System.out.println(PartidasJugadas);
         System.out.println("\nLa palabra a averiguar es ");
@@ -41,7 +46,27 @@ public class juegoClass {
         }
         }
         
-        System.out.println("\nIntroduzca una letra ");
+        System.out.println("\nIntroduzca una letra o la palabra si cree conocerla: ¿Letra o Palabra? (L/P) \n");
+        menus= (char) System.in.read();
+        if(menus=='L')
+        {
+            System.out.println("\nIntroduzca Letra: ");
+            letra= (char)System.in.read();
+            ComprobarEstado(letra);
+        }
+        else if(menus=='P')
+        {
+            System.out.println("\nIntroduzca la palabra: ");
+            Palabra=sc.nextLine();
+            if(Palabra==PalabraOculta)
+            {
+                System.out.println("\n Efectivamente, esa era la palabra");
+                Estado.estado=1;
+            }
+        }
+        else{
+            System.out.println("\n Opcion Equivocada. Penalizado con un intento menos \n");
+        }
         
     }
     
