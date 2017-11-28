@@ -10,11 +10,11 @@ package guesswords;
  *
  * @author carlos
  */
-public class jugador {
+public class juegoClass {
     String PalabraOculta;
     int nPartidasMax=5; //Fijado a 5 según requisitos, pero preparado por si se quiere variar en el futuro
     int PartidasJugadas;
-    String LetrasUsadas;
+    String LetrasUsadas[];
     int intentos=7; //Nº de intentos para cada partida. Fijado a 7 arbitrariamente.
     
     void PrintJuego()

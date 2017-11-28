@@ -10,7 +10,7 @@ package guesswords;
  *
  * @author carlos
  */
-public class juego {
+public class jugadorClass {
     int PartidasGanadas=0;
     String nombre;
     
