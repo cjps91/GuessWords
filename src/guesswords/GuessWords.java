@@ -24,11 +24,12 @@ public class GuessWords {
         for(int a=0; a<juego.nPartidasMax; a++)
         {
             juego.PrintMenu();
-            if((juego.estado==0)||(juego.intentosUsados<juego.intentos))
-            {
                for(int b=0; b<juego.intentos; b++)
                {
-                juego.PrintJuego();
+                if(juego.estado==0)
+                {
+                   juego.PrintJuego();
+                }
                 if(juego.estado==1)
                 {
                     if(juego.PartidasJugadas==0)
@@ -38,7 +39,7 @@ public class GuessWords {
                 }
                     else
                     {
-                        if(jugador1.PartidasJugadas>jugador1.PartidasJugadas)
+                        if(jugador1.PartidasJugadas>jugador2.PartidasJugadas)
                         {
                             jugador1.PartidasJugadas=jugador1.PartidasJugadas+1;
                             jugador1.PartidasGanadas=jugador1.PartidasGanadas+1;
@@ -50,11 +51,26 @@ public class GuessWords {
                         }
                     }
                 }
-               }
+            }
                if(juego.estado==0)
                {
-                   
+                  juego.PartidasJugadas=juego.PartidasJugadas+1;
                }
+        }
+        
+        if(jugador1.PartidasGanadas>jugador2.PartidasGanadas)
+        {
+            System.out.println("\n Ha ganado el jugador 1");
+        }
+        else
+        {
+            if(jugador2.PartidasGanadas>jugador1.PartidasGanadas)
+            {
+                System.out.println("\n Ha ganado el jugador 2");
+            }
+            else
+            {
+                System.out.println("\n Empate");
             }
         }
         
