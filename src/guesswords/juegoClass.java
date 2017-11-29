@@ -17,7 +17,7 @@ public class juegoClass {
     String PalabraOculta;
     int nPartidasMax=5; //Fijado a 5 según requisitos, pero preparado por si se quiere variar en el futuro
     int PartidasJugadas;
-    Vector LetrasUsadas;
+    Vector <String> LetrasUsadas;
     int intentos=7; //Nº de intentos para cada partida. Fijado a 7 arbitrariamente.
     int intentosUsados=0;
     int estado=0;
@@ -103,24 +103,28 @@ public class juegoClass {
     
     void MuestraPalabra()
     {
-        String aux, ayuda2;
-        String prueba;
-        char ayuda;
+        String aux;
+        String [] ayuda2 = LetrasUsadas.toArray(new String[LetrasUsadas.size()]);
+        String prueba=Arrays.toString(ayuda2);
         aux=PalabraOculta;
+        System.out.println("\n");
         if(LetrasUsadas.size()!=0)
         {
-            for(int j=0; j<LetrasUsadas.size(); j++)
+            for(int g=0; g<PalabraOculta.length(); g++)
             {
-                prueba=(String) LetrasUsadas.elementAt(j);
-                if(PalabraOculta.contains(prueba))
-                {
-                    ayuda2=String.valueOf(LetrasUsadas.elementAt(j));
-                    ayuda=ayuda2.charAt(0);
-                    aux.replace('*', ayuda);
-                }
+                for(int j=0; j<LetrasUsadas.size(); j++)
+                    {
+                        if(PalabraOculta.charAt(g)==prueba.charAt(j))
+                        {
+                            System.out.println(PalabraOculta.charAt(g));
+                        }
+                        else
+                        {
+                            System.out.println("*");
+                        }
+                    }
             }
         }
-        System.out.println(aux);
     }
     
 }
